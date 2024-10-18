@@ -172,13 +172,14 @@ findGivenNames = function(x,
         if (NCOL(dfResponse) == 4) {
       
             dfResponse$country_id <- "all"
+            setcolorder(dfResponse, c("name", "gender", "probability", "count", "country_id"))
             dfNames = data.table::rbindlist(list(dfNames, dfResponse))
 
         }
         
         if (NCOL(dfResponse) == 5) {
       
-          
+            setcolorder(dfResponse, c("name", "gender", "probability", "count", "country_id"))
             dfNames = data.table::rbindlist(list(dfNames, dfResponse))
 
         }
